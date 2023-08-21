@@ -14,6 +14,7 @@ export class FieldsService {
   completedSteps: Array<Step> = [];
   tempQueue: Array<Step> = [];
 
+  // todo: change section to step
   editSection(sectionKey: string): Step | null {
     const step = this.completedSteps.pop();
 
@@ -30,8 +31,8 @@ export class FieldsService {
 
   }
 
-  getSummaryData(prevStepData: Step) {
-    this.completedSteps.push(prevStepData)
+  getSummaryData(currentStep: Step) {
+    this.completedSteps.push(currentStep)
 
     return this.completedSteps.map((step: Step) => {
       return {
@@ -52,26 +53,28 @@ export class FieldsService {
     return PERSONAL_STEP_DATA
   }
 
-  getPrevStep(prevStepData: Step) {
-    this.tempQueue.push(prevStepData)
+  getPrevStep(stepData: Step): Step | null {
+    this.tempQueue.push(stepData)
 
-    return this.completedSteps.pop();
+    const prevStep = this.completedSteps.pop();
+
+    return prevStep || null;
   }
 
-  getNextStep(prevStepData: Step) {
+  getNextStep(currentStep: Step) {
 
     let nextStep: Step;
 
-    this.completedSteps.push(prevStepData);
+    this.completedSteps.push(currentStep);
 
-    const key = prevStepData.key;
+    const key = currentStep.key;
 
     if (key === 'personal') {
       nextStep = COLOR_STEP_DATA;
     } else if (key === 'color') {
       nextStep = FITNESS_STEP_DATA;
     } else if (key === 'fitness') {
-      if (prevStepData.fields[0].value === true) {
+      if (currentStep.fields[0].value === true) {
         nextStep = EXERCISE_STEP_DATA;
       } else {
         nextStep = TV_STEP_DATA
