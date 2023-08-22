@@ -6,7 +6,8 @@
     "start": "nx serve",
     "build": "nx build",
     "test": "nx test",
-    "lint": "nx run form-carousel:lint"
+    "lint": "nx run form-carousel:lint",
+    "format": "nx format:write --all"
   },
   "private": true,
   "dependencies": {
