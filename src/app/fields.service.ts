@@ -4,13 +4,12 @@ import { TV_STEP_DATA } from './config/tv';
 import { FITNESS_STEP_DATA } from './config/fitness';
 import { COLOR_STEP_DATA } from './config/color';
 import { EXERCISE_STEP_DATA } from './config/exercises';
-import { Step } from './types'
+import { Step } from './types';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class FieldsService {
-
   completedSteps: Array<Step> = [];
   tempQueue: Array<Step> = [];
 
@@ -28,11 +27,10 @@ export class FieldsService {
     } else {
       return null;
     }
-
   }
 
   getSummaryData(currentStep: Step) {
-    this.completedSteps.push(currentStep)
+    this.completedSteps.push(currentStep);
 
     return this.completedSteps.map((step: Step) => {
       return {
@@ -50,11 +48,11 @@ export class FieldsService {
   }
 
   getFirstStep() {
-    return PERSONAL_STEP_DATA
+    return PERSONAL_STEP_DATA;
   }
 
   getPrevStep(stepData: Step): Step | null {
-    this.tempQueue.push(stepData)
+    this.tempQueue.push(stepData);
 
     const prevStep = this.completedSteps.pop();
 
@@ -62,7 +60,6 @@ export class FieldsService {
   }
 
   getNextStep(currentStep: Step) {
-
     let nextStep: Step;
 
     this.completedSteps.push(currentStep);
@@ -77,7 +74,7 @@ export class FieldsService {
       if (currentStep.fields[0].value === true) {
         nextStep = EXERCISE_STEP_DATA;
       } else {
-        nextStep = TV_STEP_DATA
+        nextStep = TV_STEP_DATA;
       }
     } else {
       throw new Error('step does not exist for key: ' + key);
@@ -98,6 +95,6 @@ export class FieldsService {
       }
     }
 
-    return nextStep
+    return nextStep;
   }
 }

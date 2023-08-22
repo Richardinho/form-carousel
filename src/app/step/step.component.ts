@@ -9,8 +9,7 @@ import { createStepData } from '../utils';
   styleUrls: ['./step.component.css'],
 })
 export class StepComponent implements OnInit {
-
-  stepData!: Step; 
+  stepData!: Step;
 
   emitter!: EventEmitter<EmitterEvent>;
 
@@ -19,14 +18,14 @@ export class StepComponent implements OnInit {
   clickNext() {
     this.emitter.emit({
       stepData: createStepData(this.stepData, this.formGroup.value),
-      type: 'next'
+      type: 'next',
     });
   }
 
   clickPrev() {
     this.emitter.emit({
       stepData: createStepData(this.stepData, this.formGroup.value),
-      type: 'prev'
+      type: 'prev',
     });
   }
 
@@ -37,9 +36,7 @@ export class StepComponent implements OnInit {
     });
   }
 
-
   ngOnInit() {
-
     this.stepData.fields.forEach((field: Field) => {
       const formControl: FormControl = new FormControl(field.value);
 
@@ -50,5 +47,4 @@ export class StepComponent implements OnInit {
       this.formGroup.addControl(field.id, formControl);
     });
   }
-
 }

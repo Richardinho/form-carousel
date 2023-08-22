@@ -2,7 +2,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormHostDirective } from './form-host.directive';
-import { FormCarouselComponent } from './form-carousel/form-carousel.component'
+import { FormCarouselComponent } from './form-carousel/form-carousel.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';

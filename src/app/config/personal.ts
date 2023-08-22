@@ -2,7 +2,7 @@ export const PERSONAL_STEP_DATA = {
   key: 'personal',
   label: 'Personal',
   type: 'first',
-  fields:  [
+  fields: [
     {
       errorMessage: 'you must include your first name',
       id: 'firstName',
@@ -29,12 +29,11 @@ export const PERSONAL_STEP_DATA = {
       value: '',
       required: true,
       options: [
-        { label: 'Fireman', value: 'fireman'},
-        { label: 'Software Developer', value: 'dev'},
-        { label: 'Artist', value: 'artist'},
-        { label: 'Television Presenter', value: 'tv-presenter'},
+        { label: 'Fireman', value: 'fireman' },
+        { label: 'Software Developer', value: 'dev' },
+        { label: 'Artist', value: 'artist' },
+        { label: 'Television Presenter', value: 'tv-presenter' },
       ],
-    }
-  ]
-
+    },
+  ],
 };

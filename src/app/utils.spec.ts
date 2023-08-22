@@ -1,8 +1,7 @@
-import { FormControl, FormGroup } from "@angular/forms";
-import { createStepData } from "./utils";
+import { FormControl, FormGroup } from '@angular/forms';
+import { createStepData } from './utils';
 
 describe('utils', () => {
-
   it('should create step data from form data', () => {
     const formGroup = new FormGroup({});
     formGroup.addControl('job', new FormControl('dev'));
@@ -30,7 +29,7 @@ describe('utils', () => {
           errorMessage: 'you must include your job?',
           required: true,
           options: [],
-        }
+        },
       ],
     };
 
@@ -56,8 +55,8 @@ describe('utils', () => {
           errorMessage: 'you must include your job?',
           required: true,
           options: [],
-        }
+        },
       ],
     });
-  })
-})
+  });
+});

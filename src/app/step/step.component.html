@@ -1,64 +1,81 @@
-<h2>{{stepData.label}}</h2>
+<h2>{{ stepData.label }}</h2>
 
 <form [formGroup]="formGroup">
   <ng-container *ngFor="let field of stepData.fields">
-
     <ng-container *ngIf="field.type === 'text'">
       <mat-form-field class="mat-form-field">
-        <mat-label>{{field.label}}</mat-label>
-        <input matInput [formControlName]="field.id"/>
-        <mat-error data-test="input-error" *ngIf="!formGroup.get(field.id)?.valid">
-          {{field.errorMessage}}
+        <mat-label>{{ field.label }}</mat-label>
+        <input matInput [formControlName]="field.id" />
+        <mat-error
+          data-test="input-error"
+          *ngIf="!formGroup.get(field.id)?.valid"
+        >
+          {{ field.errorMessage }}
         </mat-error>
       </mat-form-field>
     </ng-container>
 
-    <ng-container *ngIf="field.type ==='select'">
+    <ng-container *ngIf="field.type === 'select'">
       <mat-form-field class="mat-form-field">
-        <mat-label>{{field.label}}</mat-label>
+        <mat-label>{{ field.label }}</mat-label>
         <mat-select [formControlName]="field.id">
-          <mat-option *ngFor="let option of field.options" [value]="option.value">
-            {{option.label}}
+          <mat-option
+            *ngFor="let option of field.options"
+            [value]="option.value"
+          >
+            {{ option.label }}
           </mat-option>
         </mat-select>
-        <mat-error data-test="select-error" *ngIf="!formGroup.get(field.id)?.valid">
-          {{field.errorMessage}}
+        <mat-error
+          data-test="select-error"
+          *ngIf="!formGroup.get(field.id)?.valid"
+        >
+          {{ field.errorMessage }}
         </mat-error>
       </mat-form-field>
     </ng-container>
 
     <ng-container *ngIf="field.type === 'boolean'">
-      <mat-label>{{field.label}}</mat-label>
+      <mat-label>{{ field.label }}</mat-label>
       <mat-radio-group [formControlName]="field.id">
         <mat-radio-button [value]="true">yes</mat-radio-button>
         <mat-radio-button [value]="false">no</mat-radio-button>
       </mat-radio-group>
     </ng-container>
-
-
   </ng-container>
-</form >
+</form>
 
 <div class="buttons">
   <button
     data-test="prev-button"
     [hidden]="stepData.type === 'first'"
-    mat-button color="primary"
-    (click)="clickPrev()">prev</button>
+    mat-button
+    color="primary"
+    (click)="clickPrev()"
+  >
+    prev
+  </button>
 
-  <button 
+  <button
     data-test="next-button"
     [hidden]="stepData.type === 'last'"
     [disabled]="!formGroup.valid"
-    mat-raised-button color="accent"
-    (click)="clickNext()">next</button>
-
+    mat-raised-button
+    color="accent"
+    (click)="clickNext()"
+  >
+    next
+  </button>
 </div>
 
 <button
   data-test="submit-button"
   class="submit-button"
   [disabled]="!formGroup.valid"
-  mat-flat-button color="primary"
+  mat-flat-button
+  color="primary"
   [hidden]="stepData.type !== 'last'"
-  (click)="clickSubmit()">submit</button>
+  (click)="clickSubmit()"
+>
+  submit
+</button>

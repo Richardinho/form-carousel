@@ -8,7 +8,7 @@ describe('SummaryComponent', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [SummaryComponent]
+      declarations: [SummaryComponent],
     });
 
     fixture = TestBed.createComponent(SummaryComponent);
@@ -25,11 +25,11 @@ describe('SummaryComponent', () => {
           label: '',
           key: SECTION_KEY,
           fields: [],
-        }
-      ]
+        },
+      ];
 
       fixture.detectChanges();
-      
+
       const editButton = fixture.nativeElement.querySelector('button');
 
       component.emitter = new EventEmitter();
@@ -38,7 +38,6 @@ describe('SummaryComponent', () => {
       });
 
       editButton.dispatchEvent(new Event('click'));
-    })
+    });
   });
 });
-

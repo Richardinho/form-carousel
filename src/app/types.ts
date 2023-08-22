@@ -1,5 +1,5 @@
-import { EventEmitter } from "@angular/core";
-import { FormGroup } from "@angular/forms";
+import { EventEmitter } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 export type Option = {
   label: string;
@@ -12,7 +12,7 @@ export type Field = {
   type: string;
   value: string | boolean | number;
   required: boolean;
-  options: Array<Option>
+  options: Array<Option>;
   errorMessage: string;
 };
 
@@ -38,6 +38,9 @@ export interface Page {
 export type SummaryData = {
   key: string;
   label: string;
-  fields: Array<{ id: string; label: string; value: boolean | number | string}>
+  fields: Array<{
+    id: string;
+    label: string;
+    value: boolean | number | string;
+  }>;
 };
-
