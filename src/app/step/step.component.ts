@@ -10,6 +10,8 @@ import { createStepData } from '../utils';
 })
 export class StepComponent implements OnInit {
 
+  stepData!: Step; 
+
   emitter!: EventEmitter<EmitterEvent>;
 
   formGroup: FormGroup = new FormGroup({});
@@ -49,5 +51,4 @@ export class StepComponent implements OnInit {
     });
   }
 
-  stepData!: Step; 
 }

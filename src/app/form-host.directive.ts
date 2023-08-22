@@ -5,9 +5,6 @@ import { Directive, ViewContainerRef } from '@angular/core';
 })
 export class FormHostDirective {
 
-  constructor(public viewContainerRef: ViewContainerRef) {
-
-    console.log('this is form host')
-  }
+  constructor(public viewContainerRef: ViewContainerRef) {}
 
 }

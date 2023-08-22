@@ -7,7 +7,7 @@
       <mat-form-field class="mat-form-field">
         <mat-label>{{field.label}}</mat-label>
         <input matInput [formControlName]="field.id"/>
-        <mat-error *ngIf="!formGroup.get(field.id)?.valid">
+        <mat-error data-test="input-error" *ngIf="!formGroup.get(field.id)?.valid">
           {{field.errorMessage}}
         </mat-error>
       </mat-form-field>
@@ -21,7 +21,7 @@
             {{option.label}}
           </mat-option>
         </mat-select>
-        <mat-error *ngIf="!formGroup.get(field.id)?.valid">
+        <mat-error data-test="select-error" *ngIf="!formGroup.get(field.id)?.valid">
           {{field.errorMessage}}
         </mat-error>
       </mat-form-field>
@@ -40,8 +40,25 @@
 </form >
 
 <div class="buttons">
-  <button [hidden]="stepData.type === 'first'" mat-button color="primary" (click)="clickPrev()">prev</button>
-  <button [hidden]="stepData.type === 'last'" [disabled]="!formGroup.valid" mat-raised-button color="accent" (click)="clickNext()">next</button>
+  <button
+    data-test="prev-button"
+    [hidden]="stepData.type === 'first'"
+    mat-button color="primary"
+    (click)="clickPrev()">prev</button>
+
+  <button 
+    data-test="next-button"
+    [hidden]="stepData.type === 'last'"
+    [disabled]="!formGroup.valid"
+    mat-raised-button color="accent"
+    (click)="clickNext()">next</button>
+
 </div>
 
-<button class="submit-button" mat-flat-button color="primary" [hidden]="stepData.type !== 'last'" (click)="clickSubmit()">submit</button>
+<button
+  data-test="submit-button"
+  class="submit-button"
+  [disabled]="!formGroup.valid"
+  mat-flat-button color="primary"
+  [hidden]="stepData.type !== 'last'"
+  (click)="clickSubmit()">submit</button>
