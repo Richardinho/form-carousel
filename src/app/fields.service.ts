@@ -59,7 +59,7 @@ export class FieldsService {
     return prevStep || null;
   }
 
-  getNextStep(currentStep: Step) {
+  getNextStep(currentStep: Step): Step | null {
     let nextStep: Step;
 
     this.completedSteps.push(currentStep);
@@ -77,7 +77,7 @@ export class FieldsService {
         nextStep = TV_STEP_DATA;
       }
     } else {
-      throw new Error('step does not exist for key: ' + key);
+      return null;
     }
 
     /*

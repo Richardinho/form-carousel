@@ -19,6 +19,7 @@ export class StepComponent implements OnInit {
     this.emitter.emit({
       stepData: createStepData(this.stepData, this.formGroup.value),
       type: 'next',
+      sectionKey: '',
     });
   }
 
@@ -26,6 +27,7 @@ export class StepComponent implements OnInit {
     this.emitter.emit({
       stepData: createStepData(this.stepData, this.formGroup.value),
       type: 'prev',
+      sectionKey: '',
     });
   }
 
@@ -33,6 +35,7 @@ export class StepComponent implements OnInit {
     this.emitter.emit({
       type: 'submit',
       stepData: createStepData(this.stepData, this.formGroup.value),
+      sectionKey: '',
     });
   }
 

@@ -3,7 +3,7 @@ import { EXERCISE_STEP_DATA } from './config/exercises';
 import { FITNESS_STEP_DATA } from './config/fitness';
 import { TV_STEP_DATA } from './config/tv';
 import { FieldsService } from './fields.service';
-import { Field, Step } from './types';
+import { Field, Step, SummaryData } from './types';
 
 describe('FieldsService', () => {
   let fieldsService: FieldsService;
@@ -60,7 +60,7 @@ describe('FieldsService', () => {
   });
 
   describe('getSummaryData()', () => {
-    let summaryData: any;
+    let summaryData: Array<SummaryData>;
 
     beforeEach(() => {
       currentStep = createStep(currentStepKey);
@@ -188,11 +188,7 @@ describe('FieldsService', () => {
         it('should throw error', () => {
           currentStep = createStep('unknown-key');
 
-          const errorFn = () => {
-            fieldsService.getNextStep(currentStep);
-          };
-
-          expect(errorFn).toThrowError('step does not exist for key');
+          expect(fieldsService.getNextStep(currentStep)).toBeNull();
         });
       });
 

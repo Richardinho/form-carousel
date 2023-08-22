@@ -110,9 +110,14 @@ export class FormCarouselComponent implements OnInit {
     this.loadStep(stepData);
   }
 
-  loadNextStep(prevStepData: Step) {
+  loadNextStep(currentStep: Step) {
     this.stepCounter = this.stepCounter + 1;
-    const stepData = this.fieldsService.getNextStep(prevStepData);
+    const stepData = this.fieldsService.getNextStep(currentStep);
+
+    if (!stepData) {
+      throw new Error('next step does not exist');
+    }
+
     this.loadStep(stepData);
   }
 
@@ -139,17 +144,15 @@ export class FormCarouselComponent implements OnInit {
       this.fieldsService.getSummaryData(prevStepData);
   }
 
-  edit(sectionKey?: string) {
-    if (sectionKey) {
-      this.stepCounter = this.stepCounter - 1;
-      const stepData = this.fieldsService.editSection(sectionKey);
+  edit(sectionKey: string) {
+    this.stepCounter = this.stepCounter - 1;
+    const stepData = this.fieldsService.editSection(sectionKey);
 
-      if (!stepData) {
-        throw new Error("edit step doesn't exist");
-      }
-
-      this.loadStep(stepData);
+    if (!stepData) {
+      throw new Error("edit step doesn't exist");
     }
+
+    this.loadStep(stepData);
   }
 
   ngOnInit() {

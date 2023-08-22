@@ -26,7 +26,7 @@ export type Step = {
 export type EmitterEvent = {
   type: string;
   stepData: Step;
-  sectionKey?: string;
+  sectionKey: string;
 };
 
 export interface Page {
