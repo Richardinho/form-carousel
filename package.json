@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "start": "nx serve",
-    "build": "nx build",
+    "build": "nx build --base-href=/form-carousel/",
     "test": "nx test",
     "coverage": "nx test --no-watch --code-coverage",
     "lint": "nx run form-carousel:lint",
