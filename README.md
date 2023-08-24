@@ -4,9 +4,9 @@ demo app showing a dynamic form with animated transitions
 
 ## features
 
-- dynamic: next page of form can vary according to answers to this page of the form
+- dynamic pages: next page of form dependent on answers on current one
 - animated: smooth animated transition between pages
-- editable after completion: go back and edit chosen pages. state of form will be recreated
+- editable: summary page provides buttons to revisit pages to make changes
 - validation: error messages will be displayed and progress to next page prevented if there are errors in fields
 
 ## Start the app
