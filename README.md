@@ -6,10 +6,11 @@ app showing a dynamic form with animated transitions
 
 ## features
 
-- dynamic pages: next page of form dependent on answers on current one
+- dynamic pages: succeeding pages dependent on current answers
 - animated: smooth animated transition between pages
-- editable: summary page provides buttons to revisit pages to make changes
-- validation: error messages will be displayed and progress to next page prevented if there are errors in fields
+- validation: progress is prevented and error messages displayed on invalid input
+- editable: summary page allows returning to previous pages to edit fields
+- consistent: stale values are removed after editing
 
 ## Start the app
 
