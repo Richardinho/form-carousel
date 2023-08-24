@@ -1,4 +1,3 @@
-
 describe('navigating back', () => {
   it('passes', () => {
     cy.visit('/');
@@ -16,9 +15,9 @@ describe('navigating back', () => {
     cy.get('[data-cy=next-button-color]').click();
 
     // user selects exercise
-    
+
     cy.get('[data-cy=radio-exercise-yes] input').check();
-    
+
     // user clicks next
     cy.get('[data-cy=next-button-fitness]').click();
 
@@ -30,7 +29,7 @@ describe('navigating back', () => {
     cy.get('[data-cy=prev-button-exercise]').click();
     // user selects no exercise
     cy.get('[data-cy=radio-exercise-no] input').check();
-    // user clicks next 
+    // user clicks next
     cy.get('[data-cy=next-button-fitness]').click();
     // verify on the tv page
     cy.get('[data-test=header]').contains('Television Programmes');

@@ -2,7 +2,11 @@
 
 <div *ngFor="let step of summaryData">
   <h3 [attr.data-cy]="'step-header-' + step.key">
-    {{ step.label }}&nbsp;<button [attr.data-cy]="'edit-' + step.key" (click)="editField(step.key)" mat-flat-button>
+    {{ step.label }}&nbsp;<button
+      [attr.data-cy]="'edit-' + step.key"
+      (click)="editField(step.key)"
+      mat-flat-button
+    >
       edit
     </button>
   </h3>

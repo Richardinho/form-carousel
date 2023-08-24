@@ -86,7 +86,6 @@ export class FieldsService {
      */
 
     if (this.tempQueue.length) {
-
       const cachedStep = this.tempQueue.pop();
 
       if (cachedStep && cachedStep.key === nextStep.key) {

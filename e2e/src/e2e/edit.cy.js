@@ -1,7 +1,5 @@
 describe('edit', () => {
-
   it('passes', () => {
-
     cy.visit('/');
 
     cy.get('[data-cy=input-firstName]').type('{selectAll}John');
@@ -37,7 +35,7 @@ describe('edit', () => {
     //  select tv programme is different strokes
     cy.get('[data-cy=select-tv-programme]').select('Different Strokes');
     //  click submit button
-    
+
     cy.get('[data-cy=submit-button]').click();
 
     //  verify that exercise step is not on page

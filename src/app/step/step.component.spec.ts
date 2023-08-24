@@ -17,9 +17,6 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
-import { TestbedHarnessEnvironment } from '@angular/cdk/testing/testbed';
-import { HarnessLoader } from '@angular/cdk/testing';
-import { MatSelectHarness } from '@angular/material/select/testing';
 import { EventEmitter } from '@angular/core';
 
 describe('StepComponent', () => {
@@ -401,8 +398,7 @@ describe('StepComponent', () => {
             errorMessage: SELECT_ERROR_MESSAGE,
             id: 'job',
             label: 'job',
-            options: [
-            ],
+            options: [],
             required: true,
             type: 'select',
             value: '',
@@ -419,7 +415,7 @@ describe('StepComponent', () => {
         component.formGroup.get('job')?.markAsTouched();
 
         fixture.detectChanges();
-        
+
         const errorField = fixture.nativeElement.querySelector(
           '[data-test=select-error]'
         );
@@ -430,9 +426,8 @@ describe('StepComponent', () => {
 
     describe('when field has NOT been touched', () => {
       it('should NOT display error message', async () => {
-
         fixture.detectChanges();
-        
+
         const errorField = fixture.nativeElement.querySelector(
           '[data-test=select-error]'
         );
