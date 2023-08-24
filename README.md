@@ -1,6 +1,8 @@
 # FormCarousel
 
-demo app showing a dynamic form with animated transitions
+app showing a dynamic form with animated transitions
+
+[view demo](https://richardinho.github.io/form-carousel/)
 
 ## features
 
