@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { PERSONAL_STEP_DATA } from './config/personal';
-import { TV_STEP_DATA } from './config/tv';
-import { FITNESS_STEP_DATA } from './config/fitness';
-import { COLOR_STEP_DATA } from './config/color';
-import { EXERCISE_STEP_DATA } from './config/exercises';
+import { getPersonalStep } from './config/personal';
+import { getTVStep } from './config/tv';
+import { getFitnessStep } from './config/fitness';
+import { getColorStep } from './config/color';
+import { getExerciseStep } from './config/exercises';
 import { Step } from './types';
 
 @Injectable({
@@ -48,7 +48,7 @@ export class FieldsService {
   }
 
   getFirstStep() {
-    return PERSONAL_STEP_DATA;
+    return getPersonalStep();
   }
 
   getPrevStep(stepData: Step): Step | null {
@@ -67,14 +67,14 @@ export class FieldsService {
     const key = currentStep.key;
 
     if (key === 'personal') {
-      nextStep = COLOR_STEP_DATA;
+      nextStep = getColorStep();
     } else if (key === 'color') {
-      nextStep = FITNESS_STEP_DATA;
+      nextStep = getFitnessStep();
     } else if (key === 'fitness') {
       if (currentStep.fields[0].value === true) {
-        nextStep = EXERCISE_STEP_DATA;
+        nextStep = getExerciseStep();
       } else {
-        nextStep = TV_STEP_DATA;
+        nextStep = getTVStep();
       }
     } else {
       return null;
@@ -86,6 +86,7 @@ export class FieldsService {
      */
 
     if (this.tempQueue.length) {
+
       const cachedStep = this.tempQueue.pop();
 
       if (cachedStep && cachedStep.key === nextStep.key) {

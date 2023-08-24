@@ -401,7 +401,8 @@ describe('StepComponent', () => {
             errorMessage: SELECT_ERROR_MESSAGE,
             id: 'job',
             label: 'job',
-            options: [],
+            options: [
+            ],
             required: true,
             type: 'select',
             value: '',
@@ -415,13 +416,10 @@ describe('StepComponent', () => {
 
     describe('when field has been touched', () => {
       it('should display error message', async () => {
-        const loader: HarnessLoader = TestbedHarnessEnvironment.loader(fixture);
-
-        const select = await loader.getHarness(MatSelectHarness);
         component.formGroup.get('job')?.markAsTouched();
 
-        await select.open();
-
+        fixture.detectChanges();
+        
         const errorField = fixture.nativeElement.querySelector(
           '[data-test=select-error]'
         );
@@ -432,12 +430,9 @@ describe('StepComponent', () => {
 
     describe('when field has NOT been touched', () => {
       it('should NOT display error message', async () => {
-        const loader: HarnessLoader = TestbedHarnessEnvironment.loader(fixture);
 
-        const select = await loader.getHarness(MatSelectHarness);
-
-        await select.open();
-
+        fixture.detectChanges();
+        
         const errorField = fixture.nativeElement.querySelector(
           '[data-test=select-error]'
         );

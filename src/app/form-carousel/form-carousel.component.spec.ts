@@ -24,7 +24,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { PERSONAL_STEP_DATA } from '../config/personal';
+import { getPersonalStep } from '../config/personal';
 import { SummaryComponent } from '../summary/summary.component';
 
 describe('FormCarousel', () => {
@@ -101,7 +101,7 @@ describe('FormCarousel', () => {
     describe('when prev step exists', () => {
       it('should load previous step', fakeAsync(() => {
         // loads color step
-        component.loadNextStep(PERSONAL_STEP_DATA);
+        component.loadNextStep(getPersonalStep());
 
         fixture.detectChanges();
         tick();
@@ -149,7 +149,7 @@ describe('FormCarousel', () => {
     describe('when requested step exists', () => {
       it('should reload requested step', fakeAsync(() => {
         // loads color step and puts personal step in completed list
-        component.loadNextStep(PERSONAL_STEP_DATA);
+        component.loadNextStep(getPersonalStep());
 
         component.edit('personal');
 

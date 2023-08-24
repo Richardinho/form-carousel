@@ -5,8 +5,13 @@
     <ng-container *ngIf="field.type === 'text'">
       <mat-form-field class="mat-form-field">
         <mat-label>{{ field.label }}</mat-label>
-        <input matInput [formControlName]="field.id" />
+        <input
+          [attr.data-cy]="'input-' + field.id"
+          matInput
+          [formControlName]="field.id"
+        />
         <mat-error
+          [attr.data-cy]="'error-message-' + field.id"
           data-test="input-error"
           *ngIf="!formGroup.get(field.id)?.valid"
         >
@@ -18,14 +23,15 @@
     <ng-container *ngIf="field.type === 'select'">
       <mat-form-field class="mat-form-field">
         <mat-label>{{ field.label }}</mat-label>
-        <mat-select [formControlName]="field.id">
-          <mat-option
-            *ngFor="let option of field.options"
-            [value]="option.value"
-          >
+        <select
+          [attr.data-cy]="'select-' + field.id"
+          matNativeControl
+          [formControlName]="field.id"
+        >
+          <option *ngFor="let option of field.options" [value]="option.value">
             {{ option.label }}
-          </mat-option>
-        </mat-select>
+          </option>
+        </select>
         <mat-error
           data-test="select-error"
           *ngIf="!formGroup.get(field.id)?.valid"
@@ -38,8 +44,16 @@
     <ng-container *ngIf="field.type === 'boolean'">
       <mat-label>{{ field.label }}</mat-label>
       <mat-radio-group [formControlName]="field.id">
-        <mat-radio-button [value]="true">yes</mat-radio-button>
-        <mat-radio-button [value]="false">no</mat-radio-button>
+        <mat-radio-button
+          [attr.data-cy]="'radio-' + field.id + '-yes'"
+          [value]="true"
+          >yes</mat-radio-button
+        >
+        <mat-radio-button
+          [attr.data-cy]="'radio-' + field.id + '-no'"
+          [value]="false"
+          >no</mat-radio-button
+        >
       </mat-radio-group>
     </ng-container>
   </ng-container>
@@ -47,6 +61,7 @@
 
 <div class="buttons">
   <button
+    [attr.data-cy]="'prev-button-' + stepData.key"
     data-test="prev-button"
     [hidden]="stepData.type === 'first'"
     mat-button
@@ -57,6 +72,7 @@
   </button>
 
   <button
+    [attr.data-cy]="'next-button-' + stepData.key"
     data-test="next-button"
     [hidden]="stepData.type === 'last'"
     [disabled]="!formGroup.valid"
@@ -70,6 +86,7 @@
 
 <button
   data-test="submit-button"
+  data-cy="submit-button"
   class="submit-button"
   [disabled]="!formGroup.valid"
   mat-flat-button

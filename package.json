@@ -8,7 +8,8 @@
     "test": "nx test",
     "coverage": "nx test --no-watch --code-coverage",
     "lint": "nx run form-carousel:lint",
-    "format": "nx format:write --all"
+    "format": "nx format:write --all",
+    "cypress": "nx e2e e2e"
   },
   "private": true,
   "dependencies": {

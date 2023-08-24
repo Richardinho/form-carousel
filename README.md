@@ -3,10 +3,11 @@
 demo app showing a dynamic form with animated transitions
 
 ## features
-* dynamic: next page of form can vary according to answers to this page of the form
-* animated: smooth animated transition between pages
-* editable after completion: go back and edit chosen pages. state of form will be recreated
-* validation: error messages will be displayed and progress to next page prevented if there are errors in fields
+
+- dynamic: next page of form can vary according to answers to this page of the form
+- animated: smooth animated transition between pages
+- editable after completion: go back and edit chosen pages. state of form will be recreated
+- validation: error messages will be displayed and progress to next page prevented if there are errors in fields
 
 ## Start the app
 
@@ -41,6 +42,21 @@ nx run-many -t <target1> <target2> -p <proj1> <proj2>
 ```
 
 Targets can be defined in the `package.json` or `projects.json`. Learn more [in the docs](https://nx.dev/core-features/run-tasks).
+
+## Cypress tests
+
+to run the tests:
+
+```
+npm run cypress
+
+```
+
+to open Cypress
+
+```
+npx cypress open --config "{\"e2e\": { \"baseUrl\": \"http://localhost:4200\"}}"
+```
 
 ## Want better Editor Integration?
 

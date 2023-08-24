@@ -1,7 +1,7 @@
-import { COLOR_STEP_DATA } from './config/color';
-import { EXERCISE_STEP_DATA } from './config/exercises';
-import { FITNESS_STEP_DATA } from './config/fitness';
-import { TV_STEP_DATA } from './config/tv';
+import { getColorStep } from './config/color';
+import { getExerciseStep } from './config/exercises';
+import { getFitnessStep } from './config/fitness';
+import { getTVStep } from './config/tv';
 import { FieldsService } from './fields.service';
 import { Field, Step, SummaryData } from './types';
 
@@ -139,7 +139,7 @@ describe('FieldsService', () => {
           currentStep = createStep(personalStepKey);
           result = fieldsService.getNextStep(currentStep);
 
-          expect(result).toEqual(COLOR_STEP_DATA);
+          expect(result).toEqual(getColorStep());
         });
       });
 
@@ -148,7 +148,7 @@ describe('FieldsService', () => {
           currentStep = createStep(colorStepKey);
           result = fieldsService.getNextStep(currentStep);
 
-          expect(result).toEqual(FITNESS_STEP_DATA);
+          expect(result).toEqual(getFitnessStep());
         });
       });
 
@@ -164,7 +164,7 @@ describe('FieldsService', () => {
 
             result = fieldsService.getNextStep(currentStep);
 
-            expect(result).toEqual(EXERCISE_STEP_DATA);
+            expect(result).toEqual(getExerciseStep());
           });
         });
 
@@ -179,7 +179,7 @@ describe('FieldsService', () => {
 
             result = fieldsService.getNextStep(currentStep);
 
-            expect(result).toEqual(TV_STEP_DATA);
+            expect(result).toEqual(getTVStep());
           });
         });
       });
@@ -214,7 +214,7 @@ describe('FieldsService', () => {
         });
 
         it('should return step as normal', () => {
-          expect(result).toBe(COLOR_STEP_DATA);
+          expect(result).toEqual(getColorStep());
         });
 
         it('should empty temporary queue', () => {
